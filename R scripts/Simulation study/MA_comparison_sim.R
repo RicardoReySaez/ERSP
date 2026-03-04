@@ -1,4 +1,4 @@
-# ╔════════════════════════════════════════════════════════════════════════════╗
+﻿# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║                             SCRIPT OVERVIEW                                ║
 # ╠════════════════════════════════════════════════════════════════════════════╣
 # ║ Script Name   : MatchAlign_comparison.R                                    ║
@@ -25,7 +25,7 @@
 library(SimDesign)
 library(mvnfast)
 library(infinitefactor)
-library(BayesEFA)
+library(BayesianEFA)
 
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -98,7 +98,7 @@ Analyse <- function(condition, dat, fixed_objects) {
     thin = 10, k = condition$M, 
     verbose = TRUE)
   
-  # Put draws in column-major order (for BayesEFA)
+  # Put draws in column-major order (for BayesianEFA)
   posterior_lambda <- matrix(NA, ncol = ncol(dat) * condition$M, nrow = 1000)
   
   # column-major format
@@ -113,7 +113,7 @@ Analyse <- function(condition, dat, fixed_objects) {
   
   # Efficient Rotation-Sign-Permutation algorithm (Rey-Sáez y Revuelta, 2026)
   time_ERSP <- system.time({
-    Eff_RSP <- BayesEFA::rsp_align(
+    Eff_RSP <- BayesianEFA::rsp_align(
       lambda_draws = posterior_lambda, 
       n_items = ncol(dat), 
       n_factors = condition$M, 
@@ -223,7 +223,7 @@ res <- runSimulation(
   save_details   = list(tmpfilename = "tmp_MatchAlign_comp_simres.rds",
                         out_rootdir = "Results/Simulation study/MatchAlign comparison"), 
   control        = list(store_Random.seeds = TRUE),
-  packages       = c("infinitefactor", "mvnfast", "BayesEFA", "posterior"),
+  packages       = c("infinitefactor", "mvnfast", "BayesianEFA", "posterior"),
   filename       = "MatchAlign_comp_simres.rds"
 )
 

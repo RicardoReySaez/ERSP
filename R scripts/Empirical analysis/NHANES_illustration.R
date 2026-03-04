@@ -1,4 +1,4 @@
-# ╔════════════════════════════════════════════════════════════════════════════╗
+﻿# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║                             SCRIPT OVERVIEW                                ║
 # ╠════════════════════════════════════════════════════════════════════════════╣
 # ║ Script Name   : NHANES_illustration.R                                      ║
@@ -22,7 +22,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Libraries necessary for the script to function
 library(infinitefactor)
-library(BayesEFA)
+library(BayesianEFA)
 library(tidyverse)
 library(coda)
 library(posterior)
@@ -116,7 +116,7 @@ lambdaSamps_ERSP_50 <- to_fact_switching(lambdaSamps_50)
 
 # Efficient-RSP for M = 25
 time_ERSP_25 <- system.time({
-  out_ERSP_25 <- BayesEFA::rsp_align(
+  out_ERSP_25 <- BayesianEFA::rsp_align(
     lambda_draws = lambdaSamps_ERSP_25, 
     n_items = ncol(df), 
     n_factors = 25, 
@@ -126,7 +126,7 @@ time_ERSP_25 <- system.time({
 
 # Efficient-RSP for M = 50
 time_ERSP_50 <- system.time({
-  out_ERSP_50 <- BayesEFA::rsp_align(
+  out_ERSP_50 <- BayesianEFA::rsp_align(
     lambda_draws = lambdaSamps_ERSP_50, 
     n_items = ncol(df), 
     n_factors = 50, 

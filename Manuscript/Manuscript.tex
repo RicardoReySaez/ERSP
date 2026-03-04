@@ -199,7 +199,7 @@ factors. Simulations and empirical examples demonstrate that this
 algorithm achieves higher alignment accuracy in high-dimensional
 settings with negligible computational overhead. An optimized C++
 implementation is available in the open-source R package
-\texttt{BayesEFA}. }
+\texttt{BayesianEFA}. }
 
 \keywords{Bayesian exploratory factor analysis, Bayesian factor
 models, label switching, rotational indeterminacy, post-processing.}
@@ -212,12 +212,12 @@ Revuelta}{0000-0003-4705-6282}}
 required to reproduce the results of this work are publicly available at
 \url{https://github.com/RicardoReySaez/ERSP} and
 \url{https://osf.io/4nyd7/}. The efficient-RSP algorithm is publicly
-available in \texttt{BayesEFA} package, which can be installed from
-\url{https://github.com/RicardoReySaez/BayesEFA}.  The authors declare
-that they have no conflict of interest. This work was supported by the
-Spanish Ministry of Science and Innovation grants PID2023-150830NB-I00
-(to RRS) and PID2021-124885NB-I00 (to JR).   Author roles were
-classified using the Contributor Role Taxonomy (CRediT;
+available in \texttt{BayesianEFA} package, which can be installed from
+\url{https://github.com/RicardoReySaez/BayesianEFA}.  The authors
+declare that they have no conflict of interest. This work was supported
+by the Spanish Ministry of Science and Innovation grants
+PID2023-150830NB-I00 (to RRS) and PID2021-124885NB-I00 (to JR).   Author
+roles were classified using the Contributor Role Taxonomy (CRediT;
 \url{https://credit.niso.org}) as follows:  Ricardo
 Rey-Sáez:   conceptualization, data curation, formal
 analysis, investigation, methodology, project
@@ -297,9 +297,9 @@ Pardo, Madrid 28049, Spain, Email: \href{mailto:ricardoreysaez95@gmail.com}{rica
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \usepackage{amsthm}
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\theoremstyle{plain}
 \newtheorem{lemma}{Lemma}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Proof}}
 \newtheorem*{remark}{Remark}
@@ -498,7 +498,8 @@ settings and remains accurate and computationally tractable even with
 many latent factors (e.g., \(M\geq 50\)), where an exact, globally
 optimal alignment solution has previously been computationally out of
 reach. The algorithm is implemented in C++ and is available in the R
-package \texttt{BayesEFA} (\citeproc{ref-BayesEFA}{Rey-Sáez, 2026}).
+package \texttt{BayesianEFA} (\citeproc{ref-BayesianEFA}{Rey-Sáez,
+2026}).
 
 In the remainder of this paper, we first review the main Bayesian
 approaches proposed to address rotational indeterminacy in factor
@@ -859,7 +860,7 @@ matched, the explicit signs are recovered deterministically, setting
 \(s^\star_m=1\) to break ties when an inner product is exactly zero.
 Algorithm \ref{alg:efficient-rsp} summarizes the full procedure, which
 is implemented in C++ and is publicly available through the R package
-\texttt{BayesEFA}.
+\texttt{BayesianEFA}.
 
 \vspace{1em}
 \begin{algorithm}[t]
@@ -1002,7 +1003,7 @@ factor model with a Dirichlet-Laplace shrinkage prior using the
 iterations, discarding the first 1,000 as burn-in and thinning every 10
 iterations to obtain 1,000 posterior draws per condition. Finally, these
 draws were aligned using our E-RSP algorithm, implemented in the
-\texttt{R} package \texttt{BayesEFA}. In Study 1, we compared E-RSP
+\texttt{R} package \texttt{BayesianEFA}. In Study 1, we compared E-RSP
 against the exact RSP algorithm implemented in \texttt{factor.switching}
 (\citeproc{ref-papastamoulis2022identifiability}{Papastamoulis \&
 Ntzoufras, 2022}), whereas in Study 2 we compared E-RSP against
@@ -1460,9 +1461,9 @@ applied.
 
 Finally, to facilitate widespread adoption of E-RSP in applied research,
 we provide an optimized C++ implementation that is publicly available
-through the open-source R package \texttt{BayesEFA}. Because it requires
-only posterior draws of the loading matrix as input, E-RSP can be
-integrated straightforwardly into existing Bayesian factor model
+through the open-source R package \texttt{BayesianEFA}. Because it
+requires only posterior draws of the loading matrix as input, E-RSP can
+be integrated straightforwardly into existing Bayesian factor model
 workflows. This enables researchers to address rotational indeterminacy
 with an exact post-processing approach in settings where exact solutions
 have not previously been feasible.
@@ -1725,9 +1726,10 @@ for the multidimensional nominal response model. \emph{Frontiers in
 Psychology}, \emph{Volume 8 - 2017}.
 \url{https://doi.org/10.3389/fpsyg.2017.00961}
 
-\bibitem[\citeproctext]{ref-BayesEFA}
-Rey-Sáez, R. (2026). \emph{BayesEFA: Bayesian exploratory factor
-analysis using 'stan'}. \url{https://ricardoreysaez.github.io/BayesEFA/}
+\bibitem[\citeproctext]{ref-BayesianEFA}
+Rey-Sáez, R. (2026). \emph{BayesianEFA: Bayesian exploratory factor
+analysis using 'stan'}.
+\url{https://ricardoreysaez.github.io/BayesianEFA/}
 
 \bibitem[\citeproctext]{ref-rey-saez2025}
 Rey-Sáez, R., Franco-Martínez, A., Revuelta, J., \& Vadillo, M. A.

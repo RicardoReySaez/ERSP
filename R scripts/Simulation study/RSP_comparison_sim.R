@@ -1,4 +1,4 @@
-# ╔════════════════════════════════════════════════════════════════════════════╗
+﻿# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║                             SCRIPT OVERVIEW                                ║
 # ╠════════════════════════════════════════════════════════════════════════════╣
 # ║ Script Name   : RSP_comparison_sim.R                                       ║
@@ -25,7 +25,7 @@
 library(SimDesign)
 library(infinitefactor)
 library(factor.switching)
-library(BayesEFA)
+library(BayesianEFA)
 
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -97,7 +97,7 @@ Analyse <- function(condition, dat, fixed_objects) {
   
   # Efficient Rotation-Sign-Permutation algorithm (Rey-Sáez y Revuelta, 2026)
   time_ERSP <- system.time({
-    Eff_RSP <- BayesEFA::rsp_align(
+    Eff_RSP <- BayesianEFA::rsp_align(
       lambda_draws = posterior_lambda, 
       n_items = ncol(dat), 
       n_factors = condition$M, 
@@ -172,7 +172,7 @@ res <- runSimulation(
   save_details   = list(tmpfilename = "tmp_rsp_comparison_simres.rds",
                         out_rootdir = "Results/Simulation study/RSP comparison"), 
   control        = list(store_Random.seeds = TRUE),
-  packages       = c("mvnfast", "infinitefactor", "factor.switching", "BayesEFA"),
+  packages       = c("mvnfast", "infinitefactor", "factor.switching", "BayesianEFA"),
   filename       = "rsp_comparison_simresults.rds"
 )
 

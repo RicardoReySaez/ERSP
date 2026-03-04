@@ -1,4 +1,4 @@
-# ╔════════════════════════════════════════════════════════════════════════════╗
+﻿# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║                             SCRIPT OVERVIEW                                ║
 # ╠════════════════════════════════════════════════════════════════════════════╣
 # ║ Script Name   : Lopes_illustration.R                                       ║
@@ -22,7 +22,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Libraries necessary for the script to function
 library(infinitefactor)
-library(BayesEFA)
+library(BayesianEFA)
 library(tidyverse)
 library(posterior)
 library(ggplot2)
@@ -88,7 +88,7 @@ time_RSP <- system.time({
 
 # ERSP rotation
 time_ERSP <- system.time({
-  out_ERSP <- BayesEFA::rsp_align(
+  out_ERSP <- BayesianEFA::rsp_align(
     lambda_draws = to_fact_switching(Lambda),
     n_items = ncol(data),
     n_factors = 5, 
